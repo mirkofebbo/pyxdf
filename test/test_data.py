@@ -7,7 +7,7 @@ from pyxdf import load_xdf
 
 # requires git clone https://github.com/xdf-modules/example-files.git into the root
 # pyxdf folder
-path = Path("example-files")
+path = Path("/home/mirko/Documents/code/Neurolive/example-files")
 files = {
     key: path / value
     for key, value in {
@@ -23,6 +23,7 @@ files = {
 @pytest.mark.skipif("minimal" not in files, reason="File not found.")
 def test_minimal_file(synchronize_clocks):
     path = files["minimal"]
+    print("test printing")
     streams, header = load_xdf(
         path,
         synchronize_clocks=synchronize_clocks,
